@@ -17,10 +17,25 @@ type enabled = {
   present : bool; (** feature is present (but may not be turned on) *)
 }
 
+type core = {
+	coreId  : int;
+	threadId: int;
+	socketId: int;
+	vcpusCount: int;
+	qomPath: string option;
+	coreType: string;
+}
+
+type device_info = {
+	name  : string;
+	value : string;
+}
+
 type result =
     Name_list of string list
   | Enabled of enabled
   | Status of string
+	| CoreList of core list
   | Unit
 (** A successful RPC result *)
 
@@ -46,10 +61,13 @@ type command =
   | Query_commands
   | Query_kvm
   | Query_status
+  | Query_hotpluggable_cpus
   | Stop
   | Cont
   | Eject of string * bool option
   | Change of string * string * string option
+  | Device_add of device_info list
+  | Device_del of string
   | System_powerdown
   | Xen_save_devices_state of string
   | Xen_load_devices_state of string

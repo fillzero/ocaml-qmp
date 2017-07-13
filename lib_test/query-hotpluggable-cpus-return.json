@@ -1,0 +1,1 @@
+{"return": [{"props": {"core-id": 0, "thread-id": 0, "socket-id": 0}, "vcpus-count": 1, "qom-path": "/machine/unattached/device[1]", "type": "qemu32-i386-cpu"}, {"props": {"core-id": 0, "thread-id": 0, "socket-id": 0}, "vcpus-count": 1, "type": "qemu32-i386-cpu"}]}
